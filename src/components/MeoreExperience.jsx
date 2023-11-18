@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 export default function MeoreExperience({ section }) {
   const model = useGLTF("./model/pyramid.glb");
-  const chamberModel = useGLTF("./model/chamber.glb");
+  // const chamberModel = useGLTF("./model/chamber.glb");
   const chapelModel = useGLTF("./model/chapel.glb");
   const [showChapel, setShowChapel] = useState(false);
   // const [matcapTexture] = useMatcapTexture("./textures/matcap.jpg");
@@ -30,7 +30,7 @@ export default function MeoreExperience({ section }) {
         y: -0.4700510573273299,
         z: 4.081910591638225,
         // delay: 7,
-        duration: 2,
+        duration: 1,
         // ease: "power2.inOut",
         onUpdate: () => {
           myCamera.lookAt(0, 0, 0);
@@ -41,7 +41,7 @@ export default function MeoreExperience({ section }) {
         y: -1.3,
         z: 0,
         // delay: 7,
-        duration: 2,
+        duration: 1,
         // ease: "power2.inOut",
         onUpdate: () => {
           myCamera.lookAt(0, 0, 0);
@@ -58,7 +58,7 @@ export default function MeoreExperience({ section }) {
         y: 0.8762371620758526,
         z: 4.976915384330257,
 
-        duration: 2,
+        duration: 1,
         onUpdate: () => {
           myCamera.lookAt(0, 0, 0);
         },
@@ -67,7 +67,7 @@ export default function MeoreExperience({ section }) {
         x: 2,
         y: -0.5,
         z: 0,
-        duration: 2,
+        duration: 1,
         onUpdate: () => {
           myCamera.lookAt(0, 0, 0);
         },
@@ -85,7 +85,7 @@ export default function MeoreExperience({ section }) {
         z: 1.539766513350705,
 
         // delay: 3,
-        duration: 2,
+        duration: 1,
         onUpdate: () => {
           myCamera.lookAt(0, 0, 0);
         },
@@ -94,7 +94,7 @@ export default function MeoreExperience({ section }) {
         x: 2,
         y: -1.5,
         z: 0,
-        duration: 2,
+        duration: 1,
         onUpdate: () => {
           myCamera.lookAt(0, 0, 0);
         },
@@ -114,7 +114,7 @@ export default function MeoreExperience({ section }) {
           x: 1.6746898787332118,
           y: -0.3045002396265362,
           z: -3.383071892745241,
-          duration: 2,
+          duration: 1,
         })
         .to(
           model.scene.position,
@@ -122,7 +122,7 @@ export default function MeoreExperience({ section }) {
             x: -1,
             y: -1,
             z: 0,
-            duration: 2,
+            duration: 1,
           },
           0
         );
@@ -144,7 +144,7 @@ export default function MeoreExperience({ section }) {
           y: 0.45357093854212904,
           z: -2.2464639942286089,
           // delay: 3,
-          duration: 1.2,
+          duration: 1,
           onUpdate: () => {
             myCamera.lookAt(0, 0, 0);
           },
@@ -158,7 +158,7 @@ export default function MeoreExperience({ section }) {
             y: 0.45357093854212904,
             z: 1.2464639942286089,
             // delay: 3,
-            duration: 1,
+            duration: 0.8,
             onUpdate: () => {
               myCamera.lookAt(0, 0, 0);
             },
@@ -178,27 +178,6 @@ export default function MeoreExperience({ section }) {
           },
           0
         );
-      // gsap.to(myCamera.position, {
-      //   //model animate to position position={[-1, -1.2, 1.2]}
-
-      //   x: -4.782495462317633,
-      //   y: 0.45357093854212904,
-      //   z: 1.2464639942286089,
-      //   // delay: 3,
-      //   duration: 2,
-      //   onUpdate: () => {
-      //     myCamera.lookAt(0, 0, 0);
-      //   },
-      // });
-      // gsap.to(model.scene.position, {
-      //   x: -1,
-      //   y: -1.2,
-      //   z: 1.2,
-      //   duration: 2,
-      //   onUpdate: () => {
-      //     myCamera.lookAt(0, 0, 0);
-      //   },
-      // });
     }
     if (section === 5) {
       setShowChapel(true);
@@ -255,7 +234,7 @@ export default function MeoreExperience({ section }) {
     if (section === 7) {
       const timeline = gsap.timeline({
         onUpdate: () => {
-          myCamera.lookAt(chamberModel.scene.position);
+          // myCamera.lookAt(chamberModel.scene.position);
         },
       });
       timeline.to(myCamera.position, {
@@ -264,38 +243,6 @@ export default function MeoreExperience({ section }) {
         z: 5.818441110245435,
         duration: 1,
       });
-      // .to(model.scene.position, {
-      //   x: 4,
-      //   y: 0,
-      //   z: 1.2,
-      //   duration: 2,
-      // })
-      // .to(
-      //   chamberModel.scene.position,
-      //   {
-      //     x: 0,
-      //     y: -1,
-      //     z: 0,
-      //     duration: 2,
-      //   },
-      //   1
-      // );
-      // .to(myCamera.position, {
-      //   x: 1,
-      //   y: -1,
-      //   z: 8,
-      //   duration: 2,
-      //   // onUpdate: () => {
-      //   //   myCamera.lookAt(0, -1, 0);
-      //   // },
-      // });
-
-      // .to(myCamera.position, {
-      //   x: 0.3,
-      //   y: -1,
-      //   z: 3.5,
-      //   duration: 1,
-      // });
     }
   }, [myCamera, section]);
 
@@ -306,19 +253,7 @@ export default function MeoreExperience({ section }) {
   mesh.material.fog = false;
   chapelMesh.material.color.set("#A26F46");
   chapelModel.scene.visible = showChapel;
-  // chapelModel.scene.children[0].material.color.set("#A26F46");
 
-  // const chapelMesh = chapelModel.scene.children[0];
-  // chapelMesh.material.color.set("#A15E30");
-  // chamberModel.scene.visible = true;
-
-  // console.log(chamberModel.scene.children[0].material.color.set("red"));
-  // chamberModel.scene.children[0].material.wireframe = true;
-  // chamberModel.scene.children[0].material.color.set("#E9702F");
-
-  // chamberModel.scene.children[0].color.set("orange");
-
-  //   console.log(viewport);
   return (
     <>
       <OrbitControls makeDefault />
