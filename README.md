@@ -18,7 +18,7 @@ A clone of Google's **[Pyramids of Meroë](https://artsexperiments.withgoogle.co
 
 ## 🛠 Installation
 ```sh
-git clone https://github.com/your-username/pyramids-of-meroe-clone.git
-cd pyramids-of-meroe-clone
+git clone https://github.com/shaheerAlam1/Pyramids-of-Mero-by-Google-Clone.git
+cd pyramids-of-mero-by-google-clone
 npm install
 npm run dev
